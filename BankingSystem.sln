@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Part1_Control_structures", "Part1_Control_structures\Part1_Control_structures.csproj", "{68057D4A-32AB-4DA5-A5BD-0458DBBBCC0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Part2_ClassAndObject_InheritanceAndPolymorphism", "Part2_ClassAndObject_InheritanceAndPolymorphism\Part2_ClassAndObject_InheritanceAndPolymorphism.csproj", "{E38A7166-77ED-4581-B71D-D6E70B16B414}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Part2-Abstraction", "Part2-Abstraction\Part2-Abstraction.csproj", "{1A8C5069-E263-4DB3-A9B9-E9D39A8E82D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Part2-Association", "Part2-Association\Part2-Association.csproj", "{6FE25AA1-ED60-4068-BB01-2051B8C2BC7F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBConnectivity_BankingSystem", "DBConnectivity_BankingSystem\DBConnectivity_BankingSystem.csproj", "{CF7C6A86-1E1E-40EB-88E2-8CD5CFCBEB3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance_Exception-Handling_Collection", "Inheritance_Exception-Handling_Collection\Inheritance_Exception-Handling_Collection.csproj", "{A1871307-E6D4-458C-BE0A-F4572AD0B177}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68057D4A-32AB-4DA5-A5BD-0458DBBBCC0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68057D4A-32AB-4DA5-A5BD-0458DBBBCC0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68057D4A-32AB-4DA5-A5BD-0458DBBBCC0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68057D4A-32AB-4DA5-A5BD-0458DBBBCC0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E38A7166-77ED-4581-B71D-D6E70B16B414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E38A7166-77ED-4581-B71D-D6E70B16B414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E38A7166-77ED-4581-B71D-D6E70B16B414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E38A7166-77ED-4581-B71D-D6E70B16B414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A8C5069-E263-4DB3-A9B9-E9D39A8E82D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8C5069-E263-4DB3-A9B9-E9D39A8E82D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8C5069-E263-4DB3-A9B9-E9D39A8E82D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8C5069-E263-4DB3-A9B9-E9D39A8E82D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FE25AA1-ED60-4068-BB01-2051B8C2BC7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FE25AA1-ED60-4068-BB01-2051B8C2BC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FE25AA1-ED60-4068-BB01-2051B8C2BC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FE25AA1-ED60-4068-BB01-2051B8C2BC7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF7C6A86-1E1E-40EB-88E2-8CD5CFCBEB3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF7C6A86-1E1E-40EB-88E2-8CD5CFCBEB3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF7C6A86-1E1E-40EB-88E2-8CD5CFCBEB3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF7C6A86-1E1E-40EB-88E2-8CD5CFCBEB3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1871307-E6D4-458C-BE0A-F4572AD0B177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1871307-E6D4-458C-BE0A-F4572AD0B177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1871307-E6D4-458C-BE0A-F4572AD0B177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1871307-E6D4-458C-BE0A-F4572AD0B177}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DAF84F26-86C2-4F8E-9E93-186BE571097B}
+	EndGlobalSection
+EndGlobal
