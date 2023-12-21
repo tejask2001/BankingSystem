@@ -1,5 +1,6 @@
 ﻿using Banking_system.dao;
 using Banking_system.model;
+using Inheritance_Exception_Handling_Collection.User_Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,10 @@ namespace Banking_system.dao
                     item.AccountBalance += amount;
                     balance = item.AccountBalance;
                 }
+                else
+                {
+                    throw new InvalidAccountException("Account not found.");
+                }
             }
 
             return balance;
@@ -60,6 +65,10 @@ namespace Banking_system.dao
                     balance = item.AccountBalance;
                     break;
                 }
+                else
+                {
+                    throw new InvalidAccountException("Account not found.");
+                }
             }
             return balance;
         }
@@ -72,6 +81,10 @@ namespace Banking_system.dao
                 if (accountNumber == item.AccountNumber)
                 {
                     accountList.Add(item);
+                }
+                else
+                {
+                    throw new InvalidAccountException("Account not found.");
                 }
             }
             return accountList;
@@ -109,25 +122,45 @@ namespace Banking_system.dao
                             {
                                 items.AccountBalance += amount;
                             }
+                            else
+                            {
+                                throw new InvalidAccountException("Receiver's account not found.");
+                            }
                         }
                     }
+                }
+                else
+                {
+                    throw new InvalidAccountException("Sender's account not found.");
                 }
             }
         }
 
         public float Withdraw(int accountNumber, float amount)
         {
-            float balance = 0;
-            foreach (var item in accountList)
+            float balance = GetAccountBalance(accountNumber);
+            if (balance > amount)
             {
-                if (item.AccountNumber == accountNumber)
+                foreach (var item in accountList)
                 {
-                    item.AccountBalance -= amount;
-                    balance = item.AccountBalance;
+                    if (item.AccountNumber == accountNumber)
+                    {
+                        item.AccountBalance -= amount;
+                        balance = item.AccountBalance;
+                    }
+                    else
+                    {
+                        throw new InvalidAccountException("Account not found.");
+                    }
                 }
             }
+            else
+            {
+                throw new InsufficientFundException("Insufficient Balance.");
+            }           
 
             return balance;
         }
+        
     }
 }
