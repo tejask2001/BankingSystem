@@ -1,5 +1,6 @@
 ﻿using Banking_system.model;
 using E_Commerce_App.Utility;
+using Inheritance_Exception_Handling_Collection.User_Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -71,8 +72,7 @@ namespace Banking_system.dao
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-            }
-            
+            }            
             return balance;
         }
 
@@ -119,40 +119,6 @@ namespace Banking_system.dao
             return accountDetail;
         }
 
-        public List<Transaction> GetTransaction(int accountNumber, DateOnly fromDate, DateOnly toDate)
-        {
-            List<Transaction> transactionList = new List<Transaction>();   
-            try
-            {
-                using(SqlConnection sqlConnection =new SqlConnection(connectionString))
-                {
-                    cmd.CommandText = "select * from Transactions where transaction_date between " +
-                        "@fromDate and @toDate and account_id=@accountNumber";
-                    cmd.Parameters.AddWithValue("@fromDate",fromDate);
-                    cmd.Parameters.AddWithValue("toDate", toDate);
-                    cmd.Parameters.AddWithValue("accountNumber", accountNumber);
-                    cmd.Connection=sqlConnection;
-                    sqlConnection.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Transaction transaction = new Transaction();
-                        transaction.TransactionId = (int)reader["transaction_id"];
-                        transaction.Account = (int)reader["account_id"];
-                        transaction.TransactionType = (string)reader["transaction_type"];
-                        transaction.TransactionAmount = (float)reader["amount"];
-                        transaction.DateAndTime = (DateTime)reader["transaction_date"];
-                        transactionList.Add(transaction);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            return transactionList;
-        }
-
         public List<Account> ListAccount()
         {
             List<Account> accountList= new List<Account>();
@@ -187,20 +153,14 @@ namespace Banking_system.dao
 
         public void Transfer(int fromAccountNumber, int toAccountNumber, float amount)
         {
-            try
+            float balance = GetAccountBalance(fromAccountNumber);
+            if(balance> amount)
             {
-                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                try
                 {
-                    float balance = 0;
-                    cmd.CommandText = "select balance from accounts where account_id=@fromAccountNumber";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@fromAccountNumber", fromAccountNumber);
-                    cmd.Connection = sqlConnection;
-                    sqlConnection.Open();
-                    balance = Convert.ToSingle(cmd.ExecuteScalar());
-                    sqlConnection.Close();
-                    if (balance > amount)
+                    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                     {
+
                         cmd.CommandText = "update Accounts set balance=balance-@amount output inserted.balance where " +
                                             "account_id=@fromAccountNumber";
                         cmd.Parameters.Clear();
@@ -221,20 +181,19 @@ namespace Banking_system.dao
                         cmd.ExecuteScalar();
 
                         Console.WriteLine($"\nUpdated balance after transfer is {balance}\n");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Insufficient Balance...");
-                    }
 
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
                 }
             }
-            catch (Exception e)
+            else 
             {
-                Console.WriteLine(e.Message);
-            }
-            
-            
+                throw new InsufficientFundException("Insufficient balance");
+            }          
+                        
         }
 
         public bool Withdraw(int accountNumber, float amount)
