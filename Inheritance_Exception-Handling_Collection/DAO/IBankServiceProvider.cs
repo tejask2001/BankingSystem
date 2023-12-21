@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Banking_system.dao
 {
-    internal interface IBankServiceProvider:
+    internal interface IBankServiceProvider
     {
         void createAccount(Customer customer, long accNo, String accType, float balance);
 
         List<Account> listAccounts();
 
-        List<Account> getAccountDetail(int accountNumber);
+        void getAccountDetail(int accountNumber);
         float calculateInterest();
     }
 }

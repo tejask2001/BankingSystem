@@ -13,15 +13,16 @@ namespace Banking_system.dao
 
         float Deposit(int accountNumber,float amount);
 
-        bool Withdraw(int accountNumber,float amount);
+        float Withdraw(int accountNumber,float amount);
 
         void Transfer(int fromAccountNumber,int toAccountNumber,float amount);
 
         List<Account> GetAccountDetail(int accountNumber);
 
+
         List<Account> ListAccount();
 
-        void createAccount(Customer customer,string accountType,float balance);
+        bool CreateAccount(Customer customer,string accountType,float balance);
 
         List<Transaction> GetTransaction(int accountNumber,DateTime fromDate,DateTime toDate);
     }
